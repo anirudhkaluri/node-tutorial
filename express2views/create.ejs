@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./Partials/head.ejs') %>
+    <body>
+
+
+        <%- include('./Partials/nav.ejs') %>
+
+         <div class="blog-content">
+            <form action="/blogs" method="POST">
+                <label for="title">Blog Title</label>
+                <input name="title" id="title" type="text" required>
+                <label for="snippet">Snippet</label>
+                <input name="snippet" id="snippet" type="text" required>
+                <label for="body">Blog Text</label>
+                <textarea name="body" id="body" required></textarea> <!-- we use name property to access on serverside-->
+                <button>Submit</button>
+            </form>
+        </div>
+        <%- include('./Partials/foot.ejs') %>
+        
+    </body>
+</html>

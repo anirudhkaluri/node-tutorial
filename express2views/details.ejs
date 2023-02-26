@@ -1,0 +1,35 @@
+<html>
+    <%- include("./partials/head") %>
+    <body>
+        <%- include("./partials/nav") %>
+        
+        <div>
+            <h2> <%= blog.title %> </h2>
+            <br>
+            <p> <%= blog.body %> </p>
+           
+        </div>
+        <br>
+        <a class="delete" data-doc="<%= blog._id %>">delete</a>
+        <%- include('./partials/foot') %>
+
+        <script>
+            const ele=document.querySelector('a.delete');
+            
+            ele.addEventListener('click',(e)=>{
+                const  endpoint='/blogs/${ele.dataset.doc}';
+                fetch(endpoint,{ //we are using fetch api //fetch api is much simpler than XMLHttpRequest Object //Fetch api sends http requests 
+                    method: 'DELETE'
+                })
+                .then((result)=>result.json()) //result is the json data we get back //result.json() parses json data in result into javascript object
+                .then((data)=>console.log(data)) //after result json is parsed, we get data. this data we are logging in.
+                .catch((err)=>console.log(err));
+            });
+    
+        </script>
+
+    </body>
+
+   
+    
+</html>

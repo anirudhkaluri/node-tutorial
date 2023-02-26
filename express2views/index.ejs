@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./Partials/head.ejs') %>
+    <body>
+        <%- include('./Partials/nav.ejs') %>
+
+
+
+         <div class="all-blogs">
+            <h2>All my blogs</h2>  <!-- refer to express.js file for sending this data -->
+                <% if(blogsList.length>0){ %>  <!-- we will cycle through the blogsList. so first check if length>0 -->
+                <% blogsList.forEach(blog=> { %> <!--for each blog -->
+                    <a href="/blogs/<%=blog._id %>"> 
+                        <h3 class="title"> <%= blog.title %> </h3>
+                        <p class="snippet"> <%= blog.snippet %></p>
+                    </a>
+                    <p class="body"><%= blog.body %></p>
+                <% }) %> <!-- closing the for each call back function block and for each block -->
+       
+
+                <% } else { %> <!-- closing the if block -->
+                <h3>No blogs found</h3>
+                <% } %> <!--closing else-->
+         </div>
+         <%- include('./Partials/foot.ejs') %>
+
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anirudh | <%= sentTitle%></title>
+    </head>
+    <body>
+        <nav>
+            <div class="site-title">
+                <a href="/"><h1>Blog</h1></a>
+                <p>my site</p>
+            </div>
+
+            <ul>
+                <li><a href="/">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blogs/create">New Blog</a></li>
+            </ul>
+         </nav>
+
+
+
+         <div class="all-blogs">
+            <h2>All my blogs</h2>  <!-- refer to express.js file for sending this data -->
+                <% if(blogsList.length>0){ %>  <!-- we will cycle through the blogsList. so first check if length>0 -->
+                <% blogsList.forEach(blog=> { %> <!--for each blog -->
+                    <h3 class="title"> <%= blog.title %> </h3>
+                    <p class="snippet"> <%= blog.snippet %></p>
+                <% }) %> <!-- closing the for each call back function block and for each block -->
+                <h3></h3>
+
+                <% } else { %> <!-- closing the if block -->
+                <h3>No blogs found</h3>
+                <% } %> <!--closing else-->
+         </div>
+
+    </body>
+</html>
